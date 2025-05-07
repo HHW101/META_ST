@@ -9,6 +9,7 @@ public class BaseController : MonoBehaviour
     [SerializeField] private SpriteRenderer characterRender;
     protected Vector2 moveDir = Vector2.zero;
     protected AnimaationHandler animationHandler;
+    public float moveSpeed = 5.0f;
     public Vector2 MoveDir { get { return moveDir; } }
     protected virtual void Awake()
     {
@@ -35,7 +36,7 @@ public class BaseController : MonoBehaviour
     }
     protected virtual void Movement(Vector2 direction)
     {
-        direction = direction * 5;
+        direction = direction * moveSpeed;
         _rigidbody.velocity = direction;
         animationHandler.Move(direction);
     }

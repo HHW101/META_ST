@@ -9,7 +9,7 @@ public class PlayerController : BaseController
     private Camera camera;
 
     public ModeP nowMode= ModeP.idle;
-    public enum ModeP {idle,npc,game }
+    public enum ModeP {idle,npc,game,board }
 
     // Start is called before the first frame update
     protected override void  Awake()
@@ -26,9 +26,11 @@ public class PlayerController : BaseController
         switch (nowMode) { 
             case ModeP.idle:
                 break;
-
+            case ModeP.board:
+                UIManager.Instance.OpenBoard();
+                break;
             case ModeP.npc:
-                Debug.Log("¥Î»≠√¢");
+                UIManager.Instance.Opentalk("talk Test");
                 break;
             case ModeP.game:
                 SceneManager.LoadScene("BlockScene");

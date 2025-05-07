@@ -19,7 +19,7 @@ public class DoorScript : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             go.SetActive(false);
-            collision.GetComponent<PlayerController>().nowMode = PlayerController.ModeP.game;
+            collision.GetComponent<PlayerController>().nowMode = PlayerController.ModeP.idle;
         }
     }
 }
